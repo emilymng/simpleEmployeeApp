@@ -1,7 +1,9 @@
 package com.emilymng.firstapp.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -28,15 +30,17 @@ public class Employee {
     @NotBlank(message="Job Title cannot be blank.")
     private String jobTitle;
 
-    //TODO: serialize/deserialize with JSON annotations
-    @NotBlank(message="Date of Birth cannot be blank.")
+    //@NotNull for non-string types
+    @NotNull(message="Date of Birth cannot be blank.")
+    //Jackson will deserialize.serialize LocalDate using the pattern
+    @JsonFormat(shape =  JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     private LocalDate dateOfBirth;
 
-    //TODO: serialize/deserialize with JSON annotations
-    @NotBlank(message="Hire Date cannot be blank.")
+    @NotNull(message="Hire Date cannot be blank.")
+    @JsonFormat(shape =  JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
     private LocalDate hireDate;
 
-    @NotBlank(message="Salary cannot be blank.")
+    @NotNull(message="Salary cannot be blank.")
     private double salary;
 
     private String email;
