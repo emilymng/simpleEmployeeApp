@@ -79,3 +79,17 @@ The simple Employee API performs basic CRUD operations against an H2 in-memory d
 5. Perform Create operation to add Employee records to the database (can be empty record as of 8/26/2025)
 6. Perform any other CRUD operation to manipulate data
 
+Example Request to Add Employee for easy access:
+```markdown
+  {
+	"firstName": "Emily",
+	"lastName": "Ng",
+	"department": "MIAM",
+	"jobTitle": "Info Security Engineer III",
+	"dateOfBirth": "03-10-2000",
+	"hireDate": "06-01-2022",
+	"salary": "100000",
+	"email": "eng0310@gmail.com"
+}
+```
+
